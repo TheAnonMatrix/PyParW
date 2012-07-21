@@ -8,17 +8,18 @@ from email.mime.multipart import MIMEMultipart
 from email import Encoders
 
 
-fp = open(path, 'rb')
-msg = MIMEBase(maintype, subtype)
-msg.set_payload(fp.read())
-fp.close()
-encoders.encode_base64(msg)
+#fp = open(path, 'rb')
+#msg = MIMEBase(maintype, subtype)
+#msg.set_payload(fp.read())
+#fp.close()
+#encoders.encode_base64(msg)
 
 class EMLWriter(object):
     """Writing eml files"""
     def __init__(self, mail):
         self.mail = mail
         self.path = os.getcwd()
+        self.write()
 
     def write(self):
         msg = MIMEMultipart()
@@ -34,6 +35,7 @@ class EMLWriter(object):
                 Encoders.encode_base64(part)
                 part.add_header('Content-Disposition', 'attachment; filename=Attachment')
                 msg.attach(part)
+        
 
 
     def mailsave(self):
