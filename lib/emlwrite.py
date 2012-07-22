@@ -14,6 +14,8 @@ from email import Encoders
 #fp.close()
 #encoders.encode_base64(msg)
 
+
+
 class EMLWriter(object):
     """Writing eml files"""
     def __init__(self, mail):
