@@ -32,9 +32,9 @@ class EMLWriter(object):
             for i in self.mail:
                 part = MIMEBase('application', "octet-stream")
                 part.set_payload(i)
-                Encoders.encode_base64(part)
-                part.add_header('Content-Disposition', 'attachment; filename=Attachment')
-                msg.attach(part)
+            Encoders.encode_base64(part)
+            part.add_header('Content-Disposition', 'attachment; filename=Attachment')
+            msg.attach(part)
         
 
 
